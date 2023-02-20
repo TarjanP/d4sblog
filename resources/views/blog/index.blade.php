@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>My First Blog</title>
+        <title>Az első blogom</title>
 
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -25,19 +25,40 @@
         <div class="row">
             <div class="col-12 pt-2">
                  <div class="row">
-                    <div class="col-8">
-                        <h1 class="display-one">Our Blog!</h1>
-                        <p>Enjoy reading our posts. Click on a post to read!</p>
+                    <div class="col-6">
+                        <h1 class="display-one">Első blogom!</h1>
+                        <p>A posztra címére kattintva olvashatja a bejegyzéseket.</p>
                     </div>
-                    <div class="col-4">
-                        <p>Create new Post</p>
-                        <a href="/blog/create/post" class="btn btn-primary btn-sm">Add Post</a>
+					<div class="col-3">
+						<p>Szűrés</p>
+						<select id="tag" name="tag[]" class="form-control col-12" rows="" multiple="multiple" required>
+							<option>auto</option>
+							<option>motor</option>
+							<option>kamion</option>
+						</select>
+						<script>
+							$(function(){
+							  // bind change event to select
+							  $('#tag').on('change', function () {
+								  var url = $(this).val(); // get selected value
+								  if (url) { // require a URL
+									  window.location = "./blog?a=" + url; // redirect
+								  }
+								  return false;
+							  });
+							});
+						</script>
+						<a href="./blog" class="btn btn-primary btn-sm">Szűrés törlése</a>						
+					</div>
+                    <div class="col-3">
+                        <p>Írj egy új posztot!</p>
+                        <a href="/blog/create/post" class="btn btn-primary btn-sm">Új poszt</a>
                     </div>
                 </div>                
                 @forelse($posts as $post)
                     <ul>
                         <li><a href="./blog/{{ $post->id }}">{{ ucfirst($post->title) }}</a></li>
-						<p href="./blog/{{ $post->id }}">{{ ucfirst($post->tag) }}</p>
+						<p href="./blog/{{ $post->id }}">Tag(ek): {{ ucfirst($post->tag) }}</p>
                     </ul>
                 @empty
                     <p class="text-warning">No blog Posts available</p>

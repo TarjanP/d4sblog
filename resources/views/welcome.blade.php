@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>My First Blog</title>
+        <title>Az első blogom</title>
 
         <style>
             body {
@@ -18,10 +18,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-12 text-center pt-5">
-						<h1 class="display-one mt-5">D4S Test Blog</h1>
-						<p>This awesome blog has many articles, click the button below to see them</p>
+						<h1 class="display-one mt-5">D4S Teszt Blog</h1>
+						<p>Egy remek blog, kattints a gombra!</p>
 						<br>
-						<a href="/blog" class="btn btn-outline-primary">Show Blog</a>
+						<a href="/blog" class="btn btn-outline-primary">Nézd meg a blogom!</a>
 					</div>
 				</div>
 			</div>

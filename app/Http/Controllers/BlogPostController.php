@@ -14,7 +14,14 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        $posts = BlogPost::all(); //fetch all blog posts from DB
+		$a = $_GET['a'] ?? '';
+		if (str_contains($a, ';')) $a = ''; // simple input validation
+		if ($a == '')
+			$posts = BlogPost::all();
+		else
+		{
+			$posts = BlogPost::where('tag', 'like', '%'.$a.'%')->get();
+		}
 		return view('blog.index', [
             'posts' => $posts,
 			]); //returns the view with posts
@@ -41,9 +48,8 @@ class BlogPostController extends Controller
         $newPost = BlogPost::create([
             'title' => $request->title,
             'body' => $request->body,
-			//'tag' => $request->tag,
 			'tag' => implode(' ',$request->tag ),
-            'user_name' => 1
+            'user_name' => "user"
         ]);
 
         return redirect('blog/' . $newPost->id);
