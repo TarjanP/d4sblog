@@ -41,7 +41,8 @@ class BlogPostController extends Controller
         $newPost = BlogPost::create([
             'title' => $request->title,
             'body' => $request->body,
-			'tag' => $request->tag,
+			//'tag' => $request->tag,
+			'tag' => implode(' ',$request->tag ),
             'user_name' => 1
         ]);
 

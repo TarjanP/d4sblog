@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>My First Blog</title>
-        <style>
-            body {
-                font-family: 'Nunito';
-            }
-        </style>
-
-    </head>
-
-    <body>
-
   @extends('layouts.app')
-
+  
 	@section('content')
 
 		<div class="container">
@@ -36,23 +20,14 @@
 									<input type="text" id="title" class="form-control" name="title"
 										   placeholder="Enter Post Title" required>
 								</div>
-								<div class="control-group col-4">
+								<div class="control-group col-8">
 									<label for="title">Post Tag</label>
-									
-									<div class="s2-example">
-									  <p>
-										<select class="js-example-basic-multiple js-states form-control" multiple="multiple">										  <option selected="selected">orange</option>
-										  <option>white</option>
-										  <option selected="selected">purple</option>
+										<select id="tag" name="tag[]" class="form-control col-12" rows="" multiple="multiple" required>
+											<option>auto</option>
+											<option>motor</option>
+											<option>kamion</option>
 										</select>
-									  </p>
-									</div>
 								</div>
-								<!-- <div class="control-group col-4">
-									 <label for="title">Post Tag</label>
-									 <input type="text" id="tag" class="form-control" name="tag"
-									  placeholder="Enter Post Tag" required>
-								</div> -->
 								<div class="control-group col-12 mt-2">
 									<label for="body">Post Body</label>
 									<textarea id="body" class="form-control" name="body" placeholder="Enter Post Body"
@@ -68,13 +43,8 @@
 							</div>
 						</form>
 					</div>
-
 				</div>
 			</div>
 		</div>
 
 	@endsection
-
-    </body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</html>
